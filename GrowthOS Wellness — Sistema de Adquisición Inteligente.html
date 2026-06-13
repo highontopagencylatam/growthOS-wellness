@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///Users/toba/Downloads/growthOS-landing.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowthOS Wellness — Sistema de Adquisición Inteligente</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #0E1010;
+    --ink-soft: #3A3F3F;
+    --ink-muted: #7A8282;
+    --bg: #F5F4F0;
+    --bg-card: #FFFFFF;
+    --accent: #1A7A5A;
+    --accent-light: #E8F4EF;
+    --accent-mid: #2DA070;
+    --warn: #C4581D;
+    --border: #E0DFDB;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(245,244,240,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 20px; letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .logo span { color: var(--accent); }
+  .nav-cta {
+    padding: 8px 20px; border-radius: 100px;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--accent-mid); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(26,122,90,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-light);
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before { content: '●'; font-size: 8px; }
+  h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.08; letter-spacing: -0.03em;
+    color: var(--ink); max-width: 800px;
+    margin-bottom: 24px;
+  }
+  h1 em { color: var(--accent); font-style: italic; }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px); color: var(--ink-soft);
+    max-width: 520px; line-height: 1.65; margin-bottom: 40px;
+  }
+  .hero-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 14px 32px; border-radius: 100px;
+    background: var(--accent); color: #fff;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s; box-shadow: 0 4px 20px rgba(26,122,90,0.25);
+  }
+  .btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(26,122,90,0.3); }
+  .btn-ghost {
+    padding: 14px 28px; border-radius: 100px;
+    border: 1.5px solid var(--border); color: var(--ink-soft);
+    font-size: 15px; font-weight: 400;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-ghost:hover { border-color: var(--ink-soft); color: var(--ink); }
+
+  .hero-proof {
+    margin-top: 48px; display: flex; align-items: center; gap: 24px;
+    font-size: 13px; color: var(--ink-muted);
+  }
+  .proof-divider { width: 1px; height: 20px; background: var(--border); }
+  .proof-num { font-weight: 600; color: var(--ink); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 96px 24px; }
+  .container { max-width: 1040px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    color: var(--ink); max-width: 580px;
+  }
+  h2 em { color: var(--accent); font-style: italic; }
+
+  /* ── PAIN ── */
+  .pain { background: var(--ink); }
+  .pain h2 { color: #fff; }
+  .pain h2 em { color: #6ECFA3; }
+  .pain .section-label { color: #6ECFA3; }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px; margin-top: 48px;
+    border: 2px solid #ffffff10; border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .pain-item {
+    padding: 28px 24px;
+    background: #161A1A;
+    transition: background .2s;
+  }
+  .pain-item:hover { background: #1D2323; }
+  .pain-icon { font-size: 22px; margin-bottom: 12px; }
+  .pain-title { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+  .pain-desc { font-size: 13px; color: #8A9696; line-height: 1.55; }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-section { background: var(--bg); }
+  .quiz-section h2 { max-width: 640px; }
+  .quiz-sub { font-size: 17px; color: var(--ink-soft); margin-top: 12px; max-width: 480px; }
+
+  #quiz-wrapper {
+    margin-top: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+  }
+
+  /* Progress bar */
+  .quiz-progress-bar {
+    height: 3px; background: var(--accent-light);
+  }
+  .quiz-progress-fill {
+    height: 100%; background: var(--accent);
+    transition: width .4s cubic-bezier(.4,0,.2,1);
+  }
+
+  .quiz-inner { padding: 40px 40px 36px; }
+
+  .quiz-step { display: none; animation: fadeUp .3s ease; }
+  .quiz-step.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .quiz-step-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .quiz-question {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    line-height: 1.25; color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; border-radius: var(--radius);
+    border: 1.5px solid var(--border); cursor: pointer;
+    transition: all .18s; background: var(--bg);
+  }
+  .quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
+  .quiz-option.selected { border-color: var(--accent); background: var(--accent-light); }
+  .quiz-option input { display: none; }
+  .quiz-opt-icon { font-size: 20px; width: 32px; text-align: center; flex-shrink: 0; }
+  .quiz-opt-label { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .quiz-opt-sub { font-size: 12px; color: var(--ink-muted); }
+
+  .quiz-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 28px;
+  }
+  .quiz-back {
+    font-size: 13px; color: var(--ink-muted); cursor: pointer;
+    background: none; border: none; padding: 8px 0; display: flex; align-items: center; gap: 4px;
+    transition: color .15s;
+  }
+  .quiz-back:hover { color: var(--ink); }
+  .quiz-next {
+    padding: 12px 28px; border-radius: 100px;
+    background: var(--accent); color: #fff;
+    font-size: 14px; font-weight: 500; border: none; cursor: pointer;
+    transition: all .2s; display: flex; align-items: center; gap: 8px;
+    opacity: 0.4; pointer-events: none;
+  }
+  .quiz-next.enabled { opacity: 1; pointer-events: auto; }
+  .quiz-next.enabled:hover { background: var(--accent-mid); }
+
+  /* ── RESULT SNACK ── */
+  #result { display: none; }
+  #result.active { display: block; animation: fadeUp .4s ease; }
+
+  .result-header {
+    display: flex; align-items: flex-start; gap: 20px;
+    padding-bottom: 28px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .result-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .result-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(22px, 3vw, 30px); line-height: 1.2; color: var(--ink);
+  }
+
+  .result-body { font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 24px; }
+  .result-body strong { color: var(--ink); font-weight: 500; }
+
+  .result-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .result-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px; border-radius: var(--radius);
+    background: var(--bg); border: 1px solid var(--border);
+  }
+  .result-item-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; margin-top: 1px;
+  }
+  .result-item-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .result-item-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+  .result-cta-block {
+    background: linear-gradient(135deg, var(--accent) 0%, #0F5C3F 100%);
+    border-radius: var(--radius-lg); padding: 28px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .result-cta-text { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.5; }
+  .result-cta-text strong { color: #fff; font-size: 16px; font-weight: 500; display: block; margin-bottom: 4px; }
+  .result-cta-text span { font-size: 13px; }
+
+  .btn-wa {
+    padding: 14px 26px; border-radius: 100px;
+    background: #fff; color: var(--accent);
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; transition: all .2s; flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .btn-wa:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+
+  .result-pdf-note {
+    margin-top: 14px; padding: 12px 16px;
+    border-radius: var(--radius); border: 1px dashed var(--border);
+    font-size: 13px; color: var(--ink-muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .result-pdf-note strong { color: var(--ink); font-weight: 500; }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .how-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0; margin-top: 52px;
+  }
+  .how-step {
+    padding: 28px 28px; border-right: 1px solid var(--border);
+  }
+  .how-step:last-child { border-right: none; }
+  .how-step-num {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 40px; color: var(--accent-light);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .how-step-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .how-step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* ── OFFER ── */
+  .offer { background: var(--bg); }
+  .offer-card {
+    margin-top: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+  }
+  .offer-card-head {
+    padding: 32px 36px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .offer-badge {
+    font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--warn); background: #FCF0E8; padding: 4px 12px; border-radius: 100px;
+  }
+  .offer-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(22px, 3vw, 30px); color: var(--ink); margin-bottom: 6px;
+  }
+  .offer-tagline { font-size: 15px; color: var(--ink-soft); }
+  .offer-price-block { text-align: right; }
+  .offer-setup { font-size: 13px; color: var(--ink-muted); margin-bottom: 2px; }
+  .offer-price-big {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 36px; color: var(--ink); line-height: 1;
+  }
+  .offer-price-period { font-size: 14px; color: var(--ink-muted); margin-top: 2px; }
+
+  .offer-card-body { padding: 32px 36px; }
+  .offer-includes {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin-bottom: 32px;
+  }
+  .offer-include {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  .offer-include::before {
+    content: '✓'; color: var(--accent); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .offer-cta {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding-top: 24px; border-top: 1px solid var(--border);
+  }
+  .offer-guarantee { font-size: 13px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+
+  /* ── SOCIAL PROOF ── */
+  .social { background: var(--bg-card); border-top: 1px solid var(--border); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin-top: 48px;
+  }
+  .testimonial {
+    padding: 24px; background: var(--bg);
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+  }
+  .t-quote { font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 16px; }
+  .t-quote strong { color: var(--ink); font-style: italic; font-weight: 400; font-family: 'Instrument Serif', Georgia, serif; }
+  .t-author { display: flex; align-items: center; gap: 10px; }
+  .t-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .t-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+  .t-role { font-size: 12px; color: var(--ink-muted); }
+
+  /* ── FAQ ── */
+  .faq { background: var(--bg); }
+  .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
+  .faq-item {
+    border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--border); background: var(--bg-card);
+  }
+  .faq-q {
+    padding: 18px 22px; font-size: 15px; font-weight: 500; color: var(--ink);
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    transition: background .15s;
+  }
+  .faq-q:hover { background: var(--bg); }
+  .faq-q .faq-icon { font-size: 18px; color: var(--ink-muted); transition: transform .25s; flex-shrink: 0; }
+  .faq-a {
+    display: none; padding: 0 22px 18px;
+    font-size: 14px; color: var(--ink-soft); line-height: 1.65;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--ink); padding: 96px 24px;
+    text-align: center;
+  }
+  .final-cta h2 { color: #fff; margin: 0 auto 16px; }
+  .final-cta h2 em { color: #6ECFA3; }
+  .final-sub { font-size: 17px; color: #8A9696; max-width: 440px; margin: 0 auto 36px; }
+  .final-cta .btn-primary { font-size: 16px; padding: 16px 36px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); border-top: 1px solid #ffffff10;
+    padding: 24px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 16px; color: #8A9696;
+  }
+  .footer-logo span { color: #6ECFA3; }
+  .footer-note { font-size: 12px; color: #4A5252; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    section { padding: 72px 20px; }
+    .quiz-inner { padding: 28px 22px 24px; }
+    .offer-card-head { flex-direction: column; }
+    .offer-price-block { text-align: left; }
+    .result-cta-block { flex-direction: column; }
+    .how-step { border-right: none; border-bottom: 1px solid var(--border); }
+    .how-step:last-child { border-bottom: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Growth<span>OS</span> Wellness</div>
+  <a class="nav-cta" href="file:///Users/toba/Downloads/growthOS-landing.html#quiz-section">Obtener diagnóstico gratis →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Sistema de Adquisición Inteligente · Tijuana &amp; BC</div>
+  <h1>Tu negocio wellness merece<br><em>clientes que llegan solos</em></h1>
+  <p class="hero-sub">Responde 3 preguntas y recibe tu guía personalizada de automatización. Gratis, en 60 segundos.</p>
+  <div class="hero-cta-row">
+    <a href="file:///Users/toba/Downloads/growthOS-landing.html#quiz-section" class="btn-primary">Quiero mi guía gratuita →</a>
+    <a href="file:///Users/toba/Downloads/growthOS-landing.html#oferta" class="btn-ghost">Ver la oferta completa</a>
+  </div>
+  <div class="hero-proof">
+    <span><span class="proof-num">+40</span> negocios en BC</span>
+    <div class="proof-divider"></div>
+    <span>Setup en <span class="proof-num">5 días</span></span>
+    <div class="proof-divider"></div>
+    <span>WhatsApp <span class="proof-num">24/7</span></span>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container">
+    <div class="section-label">El problema que nadie resuelve</div>
+    <h2>Cada día sin sistema<br>es dinero que <em>se va</em></h2>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="pain-icon">🕐</div>
+        <div class="pain-title">Leads que no responden</div>
+        <div class="pain-desc">Personas que preguntan por WhatsApp y desaparecen porque tardaste más de 5 minutos en contestar.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🔁</div>
+        <div class="pain-title">Seguimiento manual agotador</div>
+        <div class="pain-desc">Tú persiguiendo prospectos mientras deberías estar entrenando, dando consultas o descansando.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">📭</div>
+        <div class="pain-title">Clientes que no regresan</div>
+        <div class="pain-desc">Personas que pagaron, se fueron, y nunca volviste a contactar. Dinero sobre la mesa sin tocarlo.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">📉</div>
+        <div class="pain-title">Ingresos inconsistentes</div>
+        <div class="pain-desc">Meses buenos, meses malos. Sin un sistema, tu negocio depende de tu energía ese día.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz-section">
+  <div class="container">
+    <div class="section-label">Diagnóstico gratuito</div>
+    <h2>Descubre qué sistema<br>necesita tu negocio <em>hoy</em></h2>
+    <p class="quiz-sub">3 preguntas. Tu guía de automatización lista al instante.</p>
+
+    <div id="quiz-wrapper">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+      <div class="quiz-inner">
+
+        <!-- PASO 1 -->
+        <div class="quiz-step active" id="step-1">
+          <div class="quiz-step-label">Pregunta 1 de 3</div>
+          <div class="quiz-question">¿Qué tipo de negocio tienes?</div>
+          <div class="quiz-options">
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q1&#39;, &#39;gym&#39;)">
+              <input type="radio" name="q1" value="gym">
+              <div class="quiz-opt-icon">🏋️</div>
+              <div>
+                <div class="quiz-opt-label">Gimnasio o CrossFit</div>
+                <div class="quiz-opt-sub">Membresías, clases grupales, entrenamiento funcional</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q1&#39;, &#39;studio&#39;)">
+              <input type="radio" name="q1" value="studio">
+              <div class="quiz-opt-icon">🧘</div>
+              <div>
+                <div class="quiz-opt-label">Estudio de yoga, pilates o danza</div>
+                <div class="quiz-opt-sub">Clases por paquete, talleres, retiros</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q1&#39;, &#39;coach&#39;)">
+              <input type="radio" name="q1" value="coach">
+              <div class="quiz-opt-icon">🥗</div>
+              <div>
+                <div class="quiz-opt-label">Nutriólogo, coach o entrenador personal</div>
+                <div class="quiz-opt-sub">Programas individuales, consultoría, acompañamiento</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q1&#39;, &#39;spa&#39;)">
+              <input type="radio" name="q1" value="spa">
+              <div class="quiz-opt-icon">✨</div>
+              <div>
+                <div class="quiz-opt-label">Spa, centro de bienestar o terapias</div>
+                <div class="quiz-opt-sub">Servicios por cita, paquetes, membresías</div>
+              </div>
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <span></span>
+            <button class="quiz-next" id="next-1" onclick="goStep(2)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="quiz-step" id="step-2">
+          <div class="quiz-step-label">Pregunta 2 de 3</div>
+          <div class="quiz-question">¿Cuál es tu mayor problema ahora mismo?</div>
+          <div class="quiz-options">
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q2&#39;, &#39;leads&#39;)">
+              <input type="radio" name="q2" value="leads">
+              <div class="quiz-opt-icon">📨</div>
+              <div>
+                <div class="quiz-opt-label">No me llegan suficientes prospectos nuevos</div>
+                <div class="quiz-opt-sub">Quiero más personas interesadas en mis servicios</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q2&#39;, &#39;conversion&#39;)">
+              <input type="radio" name="q2" value="conversion">
+              <div class="quiz-opt-icon">💬</div>
+              <div>
+                <div class="quiz-opt-label">Me llegan leads pero no cierran</div>
+                <div class="quiz-opt-sub">Muchos preguntan, pocos pagan</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q2&#39;, &#39;retention&#39;)">
+              <input type="radio" name="q2" value="retention">
+              <div class="quiz-opt-icon">🔄</div>
+              <div>
+                <div class="quiz-opt-label">Mis clientes no renuevan ni regresan</div>
+                <div class="quiz-opt-sub">Alta rotación y pocos que continúan</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q2&#39;, &#39;time&#39;)">
+              <input type="radio" name="q2" value="time">
+              <div class="quiz-opt-icon">⏱️</div>
+              <div>
+                <div class="quiz-opt-label">Pierdo demasiado tiempo en tareas manuales</div>
+                <div class="quiz-opt-sub">Responder mensajes, dar seguimiento, agendar</div>
+              </div>
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" onclick="goStep(1)">← Atrás</button>
+            <button class="quiz-next" id="next-2" onclick="goStep(3)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="quiz-step" id="step-3">
+          <div class="quiz-step-label">Pregunta 3 de 3</div>
+          <div class="quiz-question">¿Cuántos clientes activos tienes ahora?</div>
+          <div class="quiz-options">
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q3&#39;, &#39;small&#39;)">
+              <input type="radio" name="q3" value="small">
+              <div class="quiz-opt-icon">🌱</div>
+              <div>
+                <div class="quiz-opt-label">Menos de 20 clientes</div>
+                <div class="quiz-opt-sub">Comenzando o en proceso de crecer</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q3&#39;, &#39;mid&#39;)">
+              <input type="radio" name="q3" value="mid">
+              <div class="quiz-opt-icon">🚀</div>
+              <div>
+                <div class="quiz-opt-label">Entre 20 y 80 clientes</div>
+                <div class="quiz-opt-sub">Negocio establecido, quiero escalar</div>
+              </div>
+            </label>
+            <label class="quiz-option" onclick="selectOpt(this, &#39;q3&#39;, &#39;large&#39;)">
+              <input type="radio" name="q3" value="large">
+              <div class="quiz-opt-icon">🏢</div>
+              <div>
+                <div class="quiz-opt-label">Más de 80 clientes</div>
+                <div class="quiz-opt-sub">Operación grande, necesito sistematizar</div>
+              </div>
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" onclick="goStep(2)">← Atrás</button>
+            <button class="quiz-next" id="next-3" onclick="showResult()">Ver mi diagnóstico →</button>
+          </div>
+        </div>
+
+        <!-- RESULTADO -->
+        <div id="result">
+          <div class="result-header">
+            <div class="result-icon" id="result-icon">🎯</div>
+            <div>
+              <div class="result-tag" id="result-tag">Tu diagnóstico personalizado</div>
+              <div class="result-title" id="result-title">Título del resultado</div>
+            </div>
+          </div>
+          <p class="result-body" id="result-body">Cuerpo del resultado.</p>
+          <div class="result-items" id="result-items"></div>
+
+          <div class="result-cta-block">
+            <div class="result-cta-text">
+              <strong id="cta-title">Recibe tu guía gratuita ahora</strong>
+              <span id="cta-sub">Escríbenos por WhatsApp y te enviamos el PDF personalizado para tu negocio</span>
+            </div>
+            <a id="wa-btn" href="file:///Users/toba/Downloads/growthOS-landing.html#" target="_blank" class="btn-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+              Quiero mi guía gratis
+            </a>
+          </div>
+
+          <div class="result-pdf-note">
+            📄 <span>También recibirás la <strong>Guía PDF de Automatización</strong> personalizada para tu tipo de negocio. Sin spam, sin venta forzada.</span>
+          </div>
+
+          <div style="margin-top: 20px; text-align: center;">
+            <button onclick="resetQuiz()" style="font-size:13px; color:var(--ink-muted); background:none; border:none; cursor:pointer; text-decoration:underline;">Volver a responder el cuestionario</button>
+          </div>
+        </div>
+
+      </div><!-- /quiz-inner -->
+    </div><!-- /quiz-wrapper -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-label">El proceso</div>
+    <h2>De lead desconocido<br>a cliente pagado — <em>automático</em></h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Captación</div>
+        <div class="how-step-desc">Alguien llega a tu perfil de Instagram o WhatsApp. El sistema responde en segundos, a cualquier hora.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Calificación</div>
+        <div class="how-step-desc">El bot hace las preguntas correctas y segmenta automáticamente: listo para comprar vs. necesita nurturing.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">Nutrición</div>
+        <div class="how-step-desc">Secuencia de 7 días con contenido tuyo: casos de éxito, metodología y oferta. Sin que toques el teléfono.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">04</div>
+        <div class="how-step-title">Conversión</div>
+        <div class="how-step-desc">El prospecto llega a ti ya convencido. Tú cierras. El sistema envía el link de pago automáticamente.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">05</div>
+        <div class="how-step-title">Retención</div>
+        <div class="how-step-desc">Reactivación automática a 30 y 60 días. Upsell cuando el cliente está listo. Referidos facilitados.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="oferta">
+  <div class="container">
+    <div class="section-label">La oferta</div>
+    <h2>Un solo servicio.<br><em>Resultados claros.</em></h2>
+    <div class="offer-card">
+      <div class="offer-card-head">
+        <div>
+          <div class="offer-badge">⭐ El más popular en BC</div>
+          <div class="offer-name" style="margin-top:10px">Sistema de Adquisición Inteligente Growth</div>
+          <div class="offer-tagline">Todo lo que necesitas para adquirir, convertir y retener clientes — instalado en 5 días.</div>
+        </div>
+        <div class="offer-price-block">
+          <div class="offer-setup">Setup único</div>
+          <div class="offer-price-big">$9,500</div>
+          <div class="offer-price-period">+ $4,500 / mes</div>
+        </div>
+      </div>
+      <div class="offer-card-body">
+        <div class="offer-includes">
+          <div class="offer-include">Chatbot de calificación por WhatsApp</div>
+          <div class="offer-include">Integración con Instagram y Facebook</div>
+          <div class="offer-include">Secuencia de nutrición de 7 días</div>
+          <div class="offer-include">Reactivación automática (30 y 60 días)</div>
+          <div class="offer-include">Upsell y referidos automatizados</div>
+          <div class="offer-include">Dashboard de conversión mensual</div>
+          <div class="offer-include">Onboarding y configuración incluidos</div>
+          <div class="offer-include">Soporte continuo por WhatsApp</div>
+        </div>
+        <div class="offer-cta">
+          <a id="whop-cta-btn" href="https://wa.me/526643622432?text=Hola%2C+quiero+invertir+en+el+SAI+Growth" target="_blank" class="btn-primary" style="background:var(--ink); box-shadow:0 4px 20px rgba(0,0,0,0.18);" title="Link de Whop pendiente — redirige a WhatsApp por ahora">
+            ⚡ Invertir ahora — $9,500 MXN
+          </a>
+          <a href="https://wa.me/526643622432?text=Hola%2C+quiero+el+SAI+Growth+para+mi+negocio" target="_blank" class="btn-ghost" style="border-color:var(--border);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+            Prefiero hablar primero
+          </a>
+          <div class="offer-guarantee" style="width:100%; margin-top:4px">🛡️ Si en 30 días no ves resultados, te devolvemos el setup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="social">
+  <div class="container">
+    <div class="section-label">Resultados reales</div>
+    <h2>Negocios en Tijuana<br>que ya <em>automatizaron</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="t-quote"><strong>"En el primer mes recuperamos 8 clientes inactivos"</strong> que ni sabíamos que podían regresar. El sistema los contactó solos. Nosotros solo recibimos los pagos.</div>
+        <div class="t-author"><div class="t-avatar">🏋️</div><div><div class="t-name">Carlos M.</div><div class="t-role">Gym en Zona Río, Tijuana</div></div></div>
+      </div>
+      <div class="testimonial">
+        <div class="t-quote">Antes pasaba 2 horas al día respondiendo WhatsApps. <strong>"Ahora solo entro cuando hay alguien listo para comprar."</strong> El resto lo hace el sistema.</div>
+        <div class="t-author"><div class="t-avatar">🧘</div><div><div class="t-name">Daniela R.</div><div class="t-role">Estudio de yoga, Ensenada</div></div></div>
+      </div>
+      <div class="testimonial">
+        <div class="t-quote"><strong>"Mis clases de mediodía estaban siempre a la mitad."</strong> A las 3 semanas se llenaron. No cambié mis precios ni mi contenido — solo instalé el sistema.</div>
+        <div class="t-author"><div class="t-avatar">💪</div><div><div class="t-name">Sofía L.</div><div class="t-role">Entrenadora personal, Tecate</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2>Lo que más nos<br><em>preguntan</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿En cuánto tiempo está listo el sistema? <span class="faq-icon">+</span></div>
+        <div class="faq-a">5 días hábiles desde que hacemos el onboarding contigo. En esa sesión de 2 horas defines el tono, los mensajes y los flujos. Nosotros construimos. Tú apruebas y listo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿Necesito saber de tecnología? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No. Todo se opera desde tu WhatsApp de siempre. No hay apps nuevas que aprender ni dashboards complicados. Si sabes usar WhatsApp, sabes usar el sistema.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si mis clientes no quieren hablar con un bot? <span class="faq-icon">+</span></div>
+        <div class="faq-a">El asistente usa el nombre de tu negocio y el tono que tú eliges — la mayoría de personas no sabe que es automatizado porque las respuestas son rápidas y naturales. Y cuando alguien pide hablar con una persona real, recibes notificación inmediata para entrar tú a la conversación.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿Funciona para negocios pequeños o solo para los grandes? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Funciona especialmente bien para negocios de 1 a 5 personas, porque el sistema reemplaza el trabajo que una persona haría manualmente. Mientras más pequeño el equipo, mayor el impacto percibido.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿Puedo cancelar cuando quiera? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Sí. La mensualidad es mes a mes sin contratos forzosos. Si en algún momento decides pausar o cancelar, avisas con 15 días de anticipación y listo. No hay penalizaciones.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container" style="max-width:640px">
+    <div class="section-label" style="color:#6ECFA3">Siguiente paso</div>
+    <h2 style="margin:0 auto 16px; max-width:500px">Empieza esta semana.<br><em>Resultados este mes.</em></h2>
+    <p class="final-sub">Escríbenos por WhatsApp y en 20 minutos hacemos un diagnóstico gratuito de tu negocio.</p>
+    <a href="https://wa.me/526643622432?text=Hola%2C+quiero+el+diagn%C3%B3stico+gratuito+de+GrowthOS" target="_blank" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Escribir por WhatsApp ahora
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Growth<span>OS</span> Wellness</div>
+  <div class="footer-note">Tijuana &amp; Baja California · Sistemas de crecimiento para negocios wellness</div>
+</footer>
+
+<script>
+  /* ── QUIZ STATE ── */
+  const answers = { q1: null, q2: null, q3: null };
+  let currentStep = 1;
+
+  function selectOpt(el, question, value) {
+    const option = el.closest ? el.closest('.quiz-option') : el;
+    const container = option.closest('.quiz-options');
+    container.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    option.classList.add('selected');
+    answers[question] = value;
+    const nextBtn = document.getElementById('next-' + currentStep);
+    if (nextBtn) { nextBtn.classList.add('enabled'); }
+  }
+
+  function goStep(n) {
+    const from = document.getElementById('step-' + currentStep);
+    const to   = document.getElementById('step-' + n);
+    if (!to) return;
+    if (from) from.classList.remove('active');
+    to.classList.add('active');
+    currentStep = n;
+    updateProgress(n);
+    // Re-enable next button if this step already has an answer
+    const qKey = 'q' + n;
+    const nextBtn = document.getElementById('next-' + n);
+    if (nextBtn && answers[qKey]) {
+      nextBtn.classList.add('enabled');
+    }
+  }
+
+  function updateProgress(step) {
+    const pct = ((step - 1) / 3) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  /* ── RESULTS MAP ── */
+  const results = {
+    // GYM
+    gym_leads:      { icon:'📣', tag:'Captación de leads', title:'Tu gym necesita un imán de leads activo', body:'Con tu perfil y tus instalaciones, el problema no es la calidad — es que no tienes un sistema que convierta el tráfico de redes en conversaciones de WhatsApp. <strong>Cada semana pasan personas frente a tu gym que nunca te contactan.</strong>', items:[{i:'🎯', t:'Flujo de captación desde Instagram', d:'Posts y Reels con CTA directo a WhatsApp. El bot califica en segundos.'},{i:'📲', t:'Respuesta automática 24/7', d:'Nadie espera más de 1 minuto. Tasa de conversión se duplica.'},{i:'📋', t:'Guía incluida: "5 posts que llenan membresías"', d:'Contenido específico para gym con CTAs probados en Tijuana.'}] },
+    gym_conversion: { icon:'💰', tag:'Conversión de prospectos', title:'Tienes los leads — te falta el cierre automático', body:'El problema no es cuántos te escriben — es cuántos terminan pagando. <strong>Sin una secuencia de seguimiento, el 80% de tus prospectos se enfrían en 48 horas.</strong>', items:[{i:'🔁', t:'Secuencia de nutrición de 7 días', d:'Casos de éxito, testimonios y oferta con urgencia. Automatizado.'},{i:'⚡', t:'Alerta de prospecto caliente', d:'Cuando alguien está listo para comprar, recibes notificación inmediata.'},{i:'📋', t:'Guía incluida: "Script de cierre para WhatsApp"', d:'Los 5 mensajes que convierten un "lo pienso" en un pago.'}] },
+    gym_retention:  { icon:'🔄', tag:'Retención de clientes', title:'Tu dinero está en los clientes que ya se fueron', body:'Una base de clientes inactivos vale más de lo que crees. <strong>El 20-30% de quienes dejaron de ir regresan con el mensaje correcto en el momento correcto.</strong>', items:[{i:'📩', t:'Campaña de reactivación automática', d:'Mensajes personalizados a 30 y 60 días de inactividad.'},{i:'🎁', t:'Oferta de regreso irresistible', d:'Diseñamos el incentivo justo para traerlos de vuelta.'},{i:'📋', t:'Guía incluida: "Reactiva tu base inactiva en 2 semanas"', d:'Protocolo paso a paso para gyms en Tijuana.'}] },
+    gym_time:       { icon:'⏱️', tag:'Automatización operativa', title:'Tu tiempo vale demasiado para gastarlo en mensajes', body:'Cada hora que pasas respondiendo WhatsApps es una hora que no estás entrenando, vendiendo o descansando. <strong>El sistema trabaja mientras tú entrenas a tus clientes.</strong>', items:[{i:'🤖', t:'Bot de calificación y agendamiento', d:'Precalifica, agenda y confirma citas sin tu intervención.'},{i:'📊', t:'Dashboard semanal de leads', d:'Ves exactamente cuántos entraron, cuántos calificaron, cuántos pagaron.'},{i:'📋', t:'Guía incluida: "Automatiza tu gym en 5 días"', d:'El roadmap exacto para implementar sin conocimientos técnicos.'}] },
+    // STUDIO
+    studio_leads:   { icon:'🧘', tag:'Llenar clases', title:'Cada lugar vacío es potencial sin activar', body:'Tu estudio tiene la energía y la calidad — lo que necesitas es un sistema que convierta curiosos en alumnos <strong>sin que tú tengas que estar al teléfono todo el día.</strong>', items:[{i:'📸', t:'Captación desde Reels e Instagram', d:'Comentarios automáticos que abren conversación en WhatsApp.'},{i:'🗓️', t:'Agendamiento de clase de prueba automatizado', d:'El alumno elige horario y se confirma solo. Tú solo das la clase.'},{i:'📋', t:'Guía incluida: "Llena tus clases con contenido orgánico"', d:'5 ideas de Reels para estudios de yoga en Tijuana.'}] },
+    studio_conversion: { icon:'💫', tag:'Convertir interesados', title:'El interés ya existe — falta nutrir la decisión', body:'Muchas personas preguntan por tus clases pero no se inscriben de inmediato. <strong>Una secuencia de 7 días que comparte tu metodología y casos de éxito convierte el "lo pienso" en inscripción.</strong>', items:[{i:'💌', t:'Secuencia de 7 mensajes personalizada', d:'Contenido que posiciona tu estudio y genera confianza gradual.'},{i:'✨', t:'Oferta de clase de prueba con urgencia', d:'El día 7: invitación especial con disponibilidad limitada.'},{i:'📋', t:'Guía incluida: "El sistema de bienvenida para estudios de yoga"', d:'Flujo completo adaptado a tu nicho.'}] },
+    studio_retention: { icon:'🌿', tag:'Renovación de paquetes', title:'Tus mejores alumnos no deberían irse sin avisar', body:'La mayoría de estudios pierde alumnos simplemente porque nadie les recordó renovar a tiempo. <strong>Un recordatorio automático al momento correcto retiene al 60% de quienes terminarían su paquete.</strong>', items:[{i:'🔔', t:'Recordatorio de renovación automático', d:'3 días antes de que expire el paquete, el sistema activa el recordatorio.'},{i:'🙏', t:'Seguimiento de alumno inactivo', d:'A los 30 días sin asistir, mensaje empático de reconexión.'},{i:'📋', t:'Guía incluida: "Retención en estudios wellness"', d:'El protocolo de 4 mensajes que mantiene lleno tu estudio.'}] },
+    studio_time:    { icon:'🕊️', tag:'Recuperar tu tiempo', title:'La práctica primero — el sistema hace el resto', body:'Eres instructora, no community manager. <strong>Cada mensaje que respondes tú es energía que quitaste de tu práctica, tus clases y tu bienestar.</strong>', items:[{i:'🤝', t:'Asistente de bienvenida inteligente', d:'Responde en tu tono, con tus palabras, 24/7.'},{i:'📅', t:'Agenda automática integrada', d:'Reservas de clase sin intercambio de mensajes.'},{i:'📋', t:'Guía incluida: "Automatiza tu estudio sin perder autenticidad"', d:'La guía que reconcilia tecnología y bienestar.'}] },
+    // COACH/NUTRIÓLOGO
+    coach_leads:    { icon:'🥗', tag:'Captación de prospectos', title:'Tu expertise merece llegar a más personas', body:'El problema no es tu método — es que las personas que te necesitan no te encuentran, o te encuentran y nadie les responde a tiempo. <strong>Un sistema de captación trabaja cuando tú estás en consulta.</strong>', items:[{i:'🔍', t:'Perfil optimizado con CTA a WhatsApp', d:'Cada elemento de tu bio dirige a una conversación calificada.'},{i:'🤖', t:'Bot de pre-consulta inteligente', d:'Califica al prospecto antes de que llegue a ti. Solo ves candidatos reales.'},{i:'📋', t:'Guía incluida: "Capta prospectos ideales como nutriólogo"', d:'El sistema de pre-calificación adaptado a tu práctica.'}] },
+    coach_conversion: { icon:'🎯', tag:'Cerrar programas', title:'El seguimiento que no tienes tiempo de hacer — automatizado', body:'Cada prospecto que no cierra hoy no es un no — es un "todavía no". <strong>Una secuencia de 7 días que educa y genera confianza convierte el 3x más que el seguimiento manual.</strong>', items:[{i:'📚', t:'Secuencia educativa de 7 días', d:'Tu metodología, tus resultados, tus palabras. Automatizado.'},{i:'📞', t:'Agenda de consulta automatizada', d:'Cuando el prospecto está listo, elige horario y se confirma solo.'},{i:'📋', t:'Guía incluida: "De lead a cliente en 7 días"', d:'La secuencia probada para coaches y nutriólogos en BC.'}] },
+    coach_retention: { icon:'🔄', tag:'Reactivación de pacientes', title:'Tus ex-clientes son tu oportunidad más inmediata', body:'Las personas que ya trabajaron contigo son las más fáciles de reactivar. <strong>Ya confían en ti — solo necesitan el empuje correcto en el momento correcto.</strong>', items:[{i:'📩', t:'Campaña de reactivación a 30/60 días', d:'Mensaje empático que retoma la conversación sin presión.'},{i:'⬆️', t:'Upsell al siguiente nivel de programa', d:'Cuando un cliente termina, el sistema ofrece la continuación natural.'},{i:'📋', t:'Guía incluida: "Reactiva pacientes inactivos con ética"', d:'El protocolo que respeta la relación y genera ingresos.'}] },
+    coach_time:     { icon:'⏳', tag:'Recuperar tiempo', title:'Tu consulta vale demasiado para perderla en WhatsApp', body:'Cada hora en seguimiento manual es una hora que no estás con un cliente real. <strong>El sistema hace la pre-venta por ti — tú solo apareces para cerrar y atender.</strong>', items:[{i:'🤖', t:'Asistente de pre-consulta 24/7', d:'Responde, califica y agenda sin tu intervención.'},{i:'📊', t:'Reporte semanal de prospectos', d:'Sabes exactamente quién está listo para comprar antes de abrir WhatsApp.'},{i:'📋', t:'Guía incluida: "Automatiza tu consultorio en 5 días"', d:'Sin conocimientos técnicos. Sin complicaciones.'}] },
+    // SPA
+    spa_leads:      { icon:'✨', tag:'Captación de nuevas visitas', title:'Personas que buscan bienestar en Tijuana — ahora te encuentran', body:'El mercado wellness en BC crece cada año. <strong>El sistema pone tu centro frente a las personas correctas y convierte el interés en cita agendada.</strong>', items:[{i:'📍', t:'Captación local en 5 km a la redonda', d:'Anuncios y perfil optimizado para búsquedas de bienestar en Tijuana.'},{i:'🗓️', t:'Agendamiento de cita automatizado', d:'Sin llamadas, sin idas y venidas de mensajes.'},{i:'📋', t:'Guía incluida: "Llena tu agenda de spa con WhatsApp"', d:'El flujo de captación para centros de bienestar en BC.'}] },
+    spa_conversion: { icon:'🌸', tag:'Convertir consultas en servicios', title:'Cada consulta de precio es una venta a medio camino', body:'Las personas que preguntan por tus servicios ya tomaron la decisión de cuidarse. <strong>Solo necesitan que alguien les responda bien y a tiempo para que la decisión sea contigo.</strong>', items:[{i:'⚡', t:'Respuesta en menos de 60 segundos', d:'Siempre. Aunque sean las 11 de la noche.'},{i:'💆', t:'Recomendación personalizada por objetivo', d:'El bot pregunta qué busca y recomienda el servicio ideal.'},{i:'📋', t:'Guía incluida: "Convierte consultas en citas de spa"', d:'Los 3 mensajes que convierten preguntas en reservas.'}] },
+    spa_retention:  { icon:'💎', tag:'Fidelización y upsell', title:'Tus mejores clientes pueden gastar más — si les ofreces el momento correcto', body:'La segunda visita es la más difícil de generar. <strong>Con un recordatorio automático al momento correcto, el regreso se vuelve natural.</strong>', items:[{i:'🎂', t:'Mensajes de cumpleaños con oferta especial', d:'Automatizado. Personalizado. Siempre en el momento perfecto.'},{i:'💅', t:'Secuencia de upsell post-servicio', d:'48 horas después, el sistema ofrece el complemento ideal.'},{i:'📋', t:'Guía incluida: "Duplica la frecuencia de visita"', d:'El sistema de retención para spas y centros de bienestar.'}] },
+    spa_time:       { icon:'🕯️', tag:'Eficiencia operativa', title:'Tu equipo debería estar en los tratamientos, no en el teléfono', body:'El tiempo de tu equipo es tu recurso más escaso. <strong>Cada minuto en administración es un minuto que no está en la experiencia del cliente.</strong>', items:[{i:'📲', t:'Todas las citas, gestionadas automáticamente', d:'Confirmaciones, recordatorios y reagendamientos sin intervención.'},{i:'🗂️', t:'Historial del cliente centralizado', d:'Saben qué servicio tuvo, cuándo fue, y qué podría querer.'},{i:'📋', t:'Guía incluida: "Automatiza la recepción de tu spa"', d:'El sistema que libera a tu equipo para lo que importa.'}] }
+  };
+
+  /* WA number */
+  const WA_NUMBER = '526643622432';
+  /* Whop payment link — update when ready */
+  const WHOP_LINK = '#whop-pendiente';
+
+  function showResult() {
+    const q1 = answers.q1 || 'gym';
+    const q2 = answers.q2 || 'leads';
+    const key = q1 + '_' + q2;
+    const r = results[key] || results['gym_leads'];
+
+    document.getElementById('result-icon').textContent = r.icon;
+    document.getElementById('result-tag').textContent = r.tag;
+    document.getElementById('result-title').textContent = r.title;
+    document.getElementById('result-body').innerHTML = r.body;
+
+    const itemsEl = document.getElementById('result-items');
+    itemsEl.innerHTML = '';
+    r.items.forEach(item => {
+      itemsEl.innerHTML += `
+        <div class="result-item">
+          <div class="result-item-icon">${item.i}</div>
+          <div><div class="result-item-title">${item.t}</div><div class="result-item-desc">${item.d}</div></div>
+        </div>`;
+    });
+
+    // Size-based copy tweak
+    const size = answers.q3;
+    let ctaTitle = 'Recibe tu guía gratuita ahora';
+    let ctaSub = 'Escríbenos por WhatsApp y te enviamos el PDF personalizado + diagnóstico gratuito de 20 min';
+    if (size === 'large') { ctaSub = 'Escríbenos por WhatsApp — para negocios de tu tamaño tenemos una ruta de implementación especial.'; }
+    document.getElementById('cta-title').textContent = ctaTitle;
+    document.getElementById('cta-sub').textContent = ctaSub;
+
+    // WA message
+    const msg = encodeURIComponent(`Hola, completé el cuestionario de GrowthOS Wellness. Tengo un negocio de tipo "${q1}" y mi principal reto es "${q2}". Quiero recibir mi guía gratuita y el diagnóstico.`);
+    document.getElementById('wa-btn').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
+
+    // Show result, hide steps
+    document.getElementById('step-3').classList.remove('active');
+    const resultEl = document.getElementById('result');
+    resultEl.style.display = 'block';
+    resultEl.classList.add('active');
+    document.getElementById('progress-fill').style.width = '100%';
+
+    // Scroll to result
+    setTimeout(() => {
+      document.getElementById('quiz-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function resetQuiz() {
+    answers.q1 = null; answers.q2 = null; answers.q3 = null;
+    currentStep = 1;
+    document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.quiz-next').forEach(b => b.classList.remove('enabled'));
+    const r = document.getElementById('result');
+    r.classList.remove('active');
+    r.style.display = 'none';
+    document.getElementById('step-1').classList.add('active');
+    document.getElementById('progress-fill').style.width = '0%';
+    document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /* ── WHOP LINK — runs after DOM ready ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    const whopBtn = document.getElementById('whop-cta-btn');
+    if (whopBtn) {
+      if (WHOP_LINK && WHOP_LINK !== '#whop-pendiente') {
+        whopBtn.href = WHOP_LINK;
+      } else {
+        whopBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=Hola%2C+quiero+invertir+en+el+SAI+Growth';
+        whopBtn.title = 'Link de Whop pendiente — redirige a WhatsApp por ahora';
+      }
+    }
+  });
+
+  /* ── FAQ ── */
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+
+</body></html>
